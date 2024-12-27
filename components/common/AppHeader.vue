@@ -1,6 +1,9 @@
 <template>
     <header class="header">
-        <h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">Nuxt3 News API App</h3>
+        <div class="flex items-center">
+            <img src="/assets/icons/icon-green.svg" alt="" class="h-10" />
+            <h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">Nuxt3 News</h3>
+        </div>
         <div class="flex items-center">
             <Avatar class="cursor-pointer">
                 <AvatarImage src="https://github.com/9diin.png" alt="profile-image" />
@@ -16,6 +19,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 <style scoped>
 .header {
+    position: fixed;
+    z-index: 1;
+
     width: 100%;
 
     display: flex;
@@ -24,6 +30,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
     padding: 8px 24px;
 
+    background-color: #ffffff;
     border-bottom: 1px solid #f5f5f5;
 }
 </style>
