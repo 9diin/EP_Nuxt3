@@ -1,5 +1,6 @@
 <template>
     <div class="page">
+        <!-- 애플리케이션 소개 문구(텍스트) 레이아웃 -->
         <div class="w-full flex flex-col items-center py-8 px-6 rounded-lg bg-neutral-100">
             <p class="leading-7 font-light">WELCOME TO NUXT3 APPLICATION</p>
             <div class="flex items-center gap-1 mt-3">
@@ -12,6 +13,7 @@
                 <h4 class="scroll-m-20 text-2xl font-semibold tracking-tight text-red-500">entertainment 🎬</h4>
             </div>
         </div>
+        <!-- 메인 콘텐츠 레이아웃 -->
         <div class="w-full flex items-center gap-6">
             <Skeleton class="w-1/3 h-full rounded-lg" />
             <div class="w-2/3 flex flex-col gap-6">
@@ -38,6 +40,7 @@
             </div>
         </div>
         <Separator label="Or" class="my-6" />
+        <!-- 최근 콘텐츠 레이아웃 -->
         <div class="w-full flex flex-col gap-6">
             <div class="w-full flex items-center justify-between">
                 <h4 class="scroll-m-20 text-2xl font-semibold tracking-tight">Latest News</h4>
