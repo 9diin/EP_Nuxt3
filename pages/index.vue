@@ -3,7 +3,7 @@
         <!-- 애플리케이션 소개 문구(텍스트) 레이아웃 -->
         <AppBanner />
         <!-- 메인 콘텐츠 레이아웃 -->
-        <SkeletonMainContent />
+        <MainContent :data="store.mainArticle" />
         <Separator label="Or" class="my-6" />
         <!-- 최근 콘텐츠 레이아웃 -->
         <div class="w-full flex flex-col gap-6">
@@ -27,9 +27,10 @@
 <script setup lang="ts">
 import { useStore } from "@/stores";
 /** 커스텀 컴포넌트 */
-import AppBanner from "~/components/common/AppBanner.vue";
-import SkeletonMainContent from "~/components/common/skeleton/SkeletonMainContent.vue";
-import SkeletonSubContent from "~/components/common/skeleton/SkeletonSubContent.vue";
+import AppBanner from "@/components/common/AppBanner.vue";
+import SkeletonMainContent from "@/components/common/skeleton/SkeletonMainContent.vue";
+import SkeletonSubContent from "@/components/common/skeleton/SkeletonSubContent.vue";
+import MainContent from "@/components/common/MainContent.vue";
 /** Shadcn-vue 컴포넌트 */
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
