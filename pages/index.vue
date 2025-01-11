@@ -14,11 +14,9 @@
                     <ArrowRight />
                 </Button>
             </div>
-            <div class="w-full grid grid-cols-4 gap-6">
-                <SkeletonSubContent />
-                <SkeletonSubContent />
-                <SkeletonSubContent />
-                <SkeletonSubContent />
+            <div class="w-full grid grid-cols-4 gap-y-20 gap-x-6">
+                <SubContent v-for="article in store.subArticles" :data="article" />
+                <!-- <SkeletonSubContent /> -->
             </div>
         </div>
     </div>
@@ -28,9 +26,10 @@
 import { useStore } from "@/stores";
 /** 커스텀 컴포넌트 */
 import AppBanner from "@/components/common/AppBanner.vue";
-import SkeletonMainContent from "@/components/common/skeleton/SkeletonMainContent.vue";
-import SkeletonSubContent from "@/components/common/skeleton/SkeletonSubContent.vue";
 import MainContent from "@/components/common/MainContent.vue";
+import SubContent from "~/components/common/SubContent.vue";
+// import SkeletonMainContent from "@/components/common/skeleton/SkeletonMainContent.vue";
+// import SkeletonSubContent from "@/components/common/skeleton/SkeletonSubContent.vue";
 /** Shadcn-vue 컴포넌트 */
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";

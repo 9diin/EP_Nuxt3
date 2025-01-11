@@ -3,7 +3,7 @@
         <div v-if="data?.urlToImage" class="w-1/3 h-full rounded-lg">
             <img :src="data?.urlToImage" alt="" class="h-full rounded-lg object-cover" />
         </div>
-        <Skeleton v-else class="w-1/3 h-full rounded-lg" />
+        <Skeleton v-else class="w-1/3 h-[298px] rounded-lg" />
         <div class="w-2/3 flex flex-col gap-6">
             <div class="flex items-center gap-2">
                 <div class="flex items-center justify-center h-10 w-10 rounded-full bg-neutral-100">
