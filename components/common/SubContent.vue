@@ -1,7 +1,10 @@
 <template>
-    <div class="w-full flex flex-col gap-4">
+    <div class="w-full flex flex-col gap-4 cursor-pointer" @click="() => moveToSite(data?.url)">
         <div v-if="data?.urlToImage" class="w-full h-44 rounded-lg">
             <img :src="data?.urlToImage" alt="" class="w-full h-full rounded-lg object-cover" />
+        </div>
+        <div v-else class="w-full h-44 rounded-lg">
+            <Skeleton class="w-full h-full rounded-lg" />
         </div>
         <div class="w-full flex flex-col gap-4">
             <div class="flex items-center gap-2">
@@ -30,6 +33,7 @@ import dayjs from "dayjs";
 import type { Article } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { User } from "lucide-vue-next";
+import Skeleton from "../ui/skeleton/Skeleton.vue";
 
 interface Props {
     data: Article | null;
@@ -37,4 +41,8 @@ interface Props {
 
 const props = defineProps<Props>();
 const { data } = toRefs(props);
+
+const moveToSite = (url?: string) => {
+    if (url) window.open(url, "_blank"); // 새 창에서 링크 열기
+};
 </script>

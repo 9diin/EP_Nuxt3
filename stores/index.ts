@@ -17,7 +17,7 @@ export const useStore = defineStore("store", () => {
     // News API 호출
     const getNews = async () => {
         const API_KEY = "ce4c280c9dff4ac0a98c9d7ea869194d";
-        const API_URL = `https://newsapi.org/v2/everything?q=${searchValue.value}&from=2025-01-02&sortBy=popularity&apiKey=${API_KEY}`;
+        const API_URL = `https://newsapi.org/v2/everything?q=${searchValue.value}&from=2025-02-02&sortBy=popularity&apiKey=${API_KEY}`;
 
         try {
             const response = await axios.get(API_URL);
@@ -26,8 +26,6 @@ export const useStore = defineStore("store", () => {
                     if (article.urlToImage !== null) return article;
                 })
                 .filter((article: Article) => article !== undefined);
-
-            console.log(articles);
 
             if (articles.length > 0) {
                 // 첫 번째 기사를 mainArticle에 설정
