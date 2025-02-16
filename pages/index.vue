@@ -10,8 +10,8 @@
         <div class="w-full flex flex-col gap-6">
             <div class="w-full flex items-center justify-between">
                 <h4 class="scroll-m-20 text-2xl font-semibold tracking-tight">Latest News</h4>
-                <Button class="bg-red-500 hover:bg-red-600">
-                    See all
+                <Button class="bg-red-500 hover:bg-red-600" @click="toggleShowAll">
+                    {{ showAll ? "Show Less" : "See All" }}
                     <ArrowRight />
                 </Button>
             </div>
@@ -23,7 +23,7 @@
                 <SkeletonSubContent />
             </div>
             <div v-else class="w-full grid grid-cols-4 gap-y-20 gap-x-6">
-                <SubContent v-for="article in subArticles" :data="article" />
+                <SubContent v-for="article in displayedArticles" :data="article" />
             </div>
         </div>
     </div>
@@ -71,4 +71,24 @@ const { data: newsData, status: loading } = useAsyncData("news", async () => {
 // mainArticle과 subArticles를 newsData에서 가져옵니다.
 const mainArticle = newsData.value?.mainArticle ?? null; // null 또는 undefined 처리
 const subArticles = newsData.value?.subArticles ?? []; // 빈 배열로 기본값 처리
+
+// "See All" 버튼 클릭 상태를 관리하는 변수
+let showAll = ref(false);
+
+// 기본적으로 표시할 서브 콘텐츠의 수
+const maxDisplayedArticles = 8;
+
+// 사용자가 "See All"을 클릭하면 모든 서브 콘텐츠를 표시하도록 처리
+const toggleShowAll = () => {
+    showAll.value = !showAll.value;
+};
+
+// showAll에 따라 표시할 서브 콘텐츠를 결정하는 computed 속성
+const displayedArticles = computed(() => {
+    if (showAll.value) {
+        return subArticles; // 전체 기사 표시
+    } else {
+        return subArticles.slice(0, maxDisplayedArticles); // 제한된 기사만 표시
+    }
+});
 </script>
